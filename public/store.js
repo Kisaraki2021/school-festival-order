@@ -1,5 +1,6 @@
 let orders = [];
-let currentFilter = '注文済み';
+let currentFilter = 'all';
+let hideCancelled = true;
 let ws;
 
 const statusFlow = ['注文済み', '金券受け取り済み', '調理中', '提供済み'];
@@ -101,6 +102,14 @@ function updateDisplay() {
 
 // バッジ更新
 function updateBadges() {
+    // 全体の件数
+    const allCount = orders.filter(o => !o.cancelled).length;
+    const allBadge = document.getElementById('badge-all');
+    if (allBadge) {
+        allBadge.textContent = allCount;
+    }
+
+    // 各ステータスの件数
     statusFlow.forEach(status => {
         const count = orders.filter(o => o.status === status && !o.cancelled).length;
         const badge = document.getElementById(`badge-${status}`);
@@ -110,10 +119,28 @@ function updateBadges() {
     });
 }
 
+// キャンセル表示フィルター切り替え
+function toggleCancelledFilter() {
+    hideCancelled = document.getElementById('hide-cancelled').checked;
+    updateDisplay();
+}
+
 // 注文表示
 function displayOrders() {
     const container = document.getElementById('orders-container');
-    const filteredOrders = orders.filter(o => o.status === currentFilter);
+
+    // フィルター適用
+    let filteredOrders = orders;
+
+    // ステータスフィルター
+    if (currentFilter !== 'all') {
+        filteredOrders = filteredOrders.filter(o => o.status === currentFilter);
+    }
+
+    // キャンセルフィルター
+    if (hideCancelled) {
+        filteredOrders = filteredOrders.filter(o => !o.cancelled);
+    }
 
     if (filteredOrders.length === 0) {
         container.innerHTML = '<p class="no-orders">注文がありません</p>';

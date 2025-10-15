@@ -12,19 +12,34 @@
     <div class="container">
         <h1>🏪 店端末 - 注文管理</h1>
 
-        <div class="status-tabs">
-            <button class="tab-btn active" data-status="注文済み" onclick="filterByStatus('注文済み')">
-                注文済み <span class="badge" id="badge-注文済み">0</span>
-            </button>
-            <button class="tab-btn" data-status="金券受け取り済み" onclick="filterByStatus('金券受け取り済み')">
-                金券受け取り済み <span class="badge" id="badge-金券受け取り済み">0</span>
-            </button>
-            <button class="tab-btn" data-status="調理中" onclick="filterByStatus('調理中')">
-                調理中 <span class="badge" id="badge-調理中">0</span>
-            </button>
-            <button class="tab-btn" data-status="提供済み" onclick="filterByStatus('提供済み')">
-                提供済み <span class="badge" id="badge-提供済み">0</span>
-            </button>
+        <div class="filter-section">
+            <div class="filter-group">
+                <label>ステータスフィルター:</label>
+                <div class="status-tabs">
+                    <button class="tab-btn active" data-status="all" onclick="filterByStatus('all')">
+                        全て <span class="badge" id="badge-all">0</span>
+                    </button>
+                    <button class="tab-btn" data-status="注文済み" onclick="filterByStatus('注文済み')">
+                        注文済み <span class="badge" id="badge-注文済み">0</span>
+                    </button>
+                    <button class="tab-btn" data-status="金券受け取り済み" onclick="filterByStatus('金券受け取り済み')">
+                        金券受け取り済み <span class="badge" id="badge-金券受け取り済み">0</span>
+                    </button>
+                    <button class="tab-btn" data-status="調理中" onclick="filterByStatus('調理中')">
+                        調理中 <span class="badge" id="badge-調理中">0</span>
+                    </button>
+                    <button class="tab-btn" data-status="提供済み" onclick="filterByStatus('提供済み')">
+                        提供済み <span class="badge" id="badge-提供済み">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>
+                    <input type="checkbox" id="hide-cancelled" onchange="toggleCancelledFilter()" checked>
+                    キャンセル済みを非表示
+                </label>
+            </div>
         </div>
 
         <div class="orders-container" id="orders-container">

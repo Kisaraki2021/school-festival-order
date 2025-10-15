@@ -28,10 +28,40 @@ h1 {
   font-size: 2.5em;
 }
 
+.filter-section {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+.filter-group label {
+  display: block;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.filter-group label input[type="checkbox"] {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
 .status-tabs {
   display: flex;
   gap: 10px;
-  margin-bottom: 30px;
   overflow-x: auto;
   padding-bottom: 10px;
 }
