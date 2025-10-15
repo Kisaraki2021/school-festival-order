@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>店端末 - 注文管理システム</title>
+    <link rel="stylesheet" href="store.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🏪 店端末 - 注文管理</h1>
+
+        <div class="status-tabs">
+            <button class="tab-btn active" data-status="注文済み" onclick="filterByStatus('注文済み')">
+                注文済み <span class="badge" id="badge-注文済み">0</span>
+            </button>
+            <button class="tab-btn" data-status="金券受け取り済み" onclick="filterByStatus('金券受け取り済み')">
+                金券受け取り済み <span class="badge" id="badge-金券受け取り済み">0</span>
+            </button>
+            <button class="tab-btn" data-status="調理中" onclick="filterByStatus('調理中')">
+                調理中 <span class="badge" id="badge-調理中">0</span>
+            </button>
+            <button class="tab-btn" data-status="提供済み" onclick="filterByStatus('提供済み')">
+                提供済み <span class="badge" id="badge-提供済み">0</span>
+            </button>
+        </div>
+
+        <div class="orders-container" id="orders-container">
+            <p class="no-orders">注文がありません</p>
+        </div>
+    </div>
+
+    <script src="store.js"></script>
+</body>
+
+</html>

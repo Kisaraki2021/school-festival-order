@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>受付端末 - 注文管理システム</title>
+    <link rel="stylesheet" href="reception.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎪 受付端末</h1>
+
+        <div class="products">
+            <h2>商品選択</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <h3>商品A</h3>
+                    <p class="price">¥100</p>
+                    <div class="quantity-control">
+                        <button onclick="changeQuantity('A', -1)">−</button>
+                        <input type="number" id="quantity-A" value="0" min="0" readonly>
+                        <button onclick="changeQuantity('A', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <h3>商品B</h3>
+                    <p class="price">¥100</p>
+                    <div class="quantity-control">
+                        <button onclick="changeQuantity('B', -1)">−</button>
+                        <input type="number" id="quantity-B" value="0" min="0" readonly>
+                        <button onclick="changeQuantity('B', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <h3>商品C</h3>
+                    <p class="price">¥200</p>
+                    <div class="quantity-control">
+                        <button onclick="changeQuantity('C', -1)">−</button>
+                        <input type="number" id="quantity-C" value="0" min="0" readonly>
+                        <button onclick="changeQuantity('C', 1)">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-summary">
+            <h2>注文内容</h2>
+            <div id="order-items"></div>
+            <div class="total">
+                <strong>合計:</strong> <span id="total-price">¥0</span>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button class="btn-clear" onclick="clearOrder()">クリア</button>
+            <button class="btn-submit" onclick="submitOrder()">注文する</button>
+        </div>
+
+        <div id="message" class="message"></div>
+    </div>
+
+    <script src="reception.js"></script>
+</body>
+
+</html>
