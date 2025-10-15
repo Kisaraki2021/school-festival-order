@@ -15,6 +15,14 @@ function connectWebSocket() {
         console.log('WebSocket接続成功');
     };
 
+    ws.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.type === 'orderCreated' && data.order) {
+            const displayNum = data.order.displayNumber ? String(data.order.displayNumber).padStart(2, '0') : '??';
+            showMessage(`注文番号 ${displayNum} で受付しました！`, 'success');
+        }
+    };
+
     ws.onclose = () => {
         console.log('WebSocket切断。5秒後に再接続します...');
         setTimeout(connectWebSocket, 5000);
@@ -103,7 +111,6 @@ function submitOrder() {
             items: items
         }));
 
-        showMessage('注文を送信しました！', 'success');
         clearOrder();
     } else {
         showMessage('サーバーに接続できません', 'error');

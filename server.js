@@ -39,6 +39,7 @@ function saveOrders(orders) {
 
 let orders = loadOrders();
 let orderIdCounter = orders.length > 0 ? Math.max(...orders.map(o => o.id)) + 1 : 1;
+let displayNumberCounter = orders.length > 0 ? Math.max(...orders.map(o => o.displayNumber || 0)) : 0;
 
 // WebSocket接続
 const clients = new Set();
@@ -85,8 +86,12 @@ function handleMessage(data) {
 
 // 新規注文作成
 function createOrder(items) {
+    // 表示番号を01~20で循環
+    displayNumberCounter = (displayNumberCounter % 20) + 1;
+
     const order = {
         id: orderIdCounter++,
+        displayNumber: displayNumberCounter,
         items: items,
         status: '注文済み',
         timestamp: new Date().toISOString(),

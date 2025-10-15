@@ -191,10 +191,15 @@ function createOrderCard(order) {
     </div>
   `;
 
+    const displayNum = order.displayNumber ? String(order.displayNumber).padStart(2, '0') : '??';
+
     return `
     <div class="order-card ${order.cancelled ? 'cancelled' : ''}">
       <div class="order-header">
-        <div class="order-number">#${order.id}</div>
+        <div class="order-number">
+          <span class="display-number">${displayNum}</span>
+          <span class="internal-id">(ID: ${order.id})</span>
+        </div>
         <div class="order-time">${time}</div>
       </div>
       ${cancelledHtml}
