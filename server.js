@@ -150,9 +150,14 @@ app.get('/store', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'store.html'));
 });
 
+app.get('/display', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'display.html'));
+});
+
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`サーバーが起動しました: http://localhost:${PORT}`);
     console.log(`受付端末: http://localhost:${PORT}/`);
     console.log(`店端末: http://localhost:${PORT}/store`);
+    console.log(`番号表示端末: http://localhost:${PORT}/display`);
 });

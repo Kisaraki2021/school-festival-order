@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-container {
+    width: 98vw;
+    height: 98vh;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    overflow: hidden;
+}
+
+.pending-section,
+.completed-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.pending-section {
+    background: linear-gradient(135deg, #FFF5E1 0%, #FFE4B5 100%);
+}
+
+.completed-section {
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+}
+
+.divider {
+    width: 4px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+.section-header h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.numbers-grid {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-content: flex-start;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* スクロールバーのスタイル */
+.numbers-grid::-webkit-scrollbar {
+    width: 12px;
+}
+
+.numbers-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.numbers-grid::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.numbers-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.number-box {
+    min-width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease;
+}
+
+.number-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.pending-section .number-box {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.completed-section .number-box {
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.empty-message {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    color: rgba(0, 0, 0, 0.4);
+    padding: 50px;
+    font-weight: 500;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 点滅アニメーション（新しい注文用） */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.number-box.new {
+    animation: fadeIn 0.5s ease, blink 1s ease 3;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 1200px) {
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .number-box {
+        min-width: 120px;
+        height: 120px;
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .display-container {
+        flex-direction: column;
+    }
+
+    .divider {
+        width: 100%;
+        height: 4px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .number-box {
+        min-width: 100px;
+        height: 100px;
+        font-size: 3rem;
+    }
+}

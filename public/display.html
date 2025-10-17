@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>番号表示端末 - 注文管理システム</title>
+    <link rel="stylesheet" href="display.css">
+</head>
+
+<body>
+    <div class="display-container">
+        <div class="pending-section">
+            <div class="section-header">
+                <h2>🕐 調理中</h2>
+            </div>
+            <div class="numbers-grid" id="pending-numbers">
+                <p class="empty-message">現在調理中の注文はありません</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="completed-section">
+            <div class="section-header">
+                <h2>✅ お渡し可能</h2>
+            </div>
+            <div class="numbers-grid" id="completed-numbers">
+                <p class="empty-message">お渡し可能な注文はありません</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="display.js"></script>
+</body>
+
+</html>

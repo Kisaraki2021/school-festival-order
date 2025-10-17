@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "id": 1,
+    "displayNumber": 1,
+    "items": [
+      {
+        "id": "A",
+        "name": "商品A",
+        "price": 100,
+        "quantity": 1
+      }
+    ],
+    "status": "提供済み",
+    "timestamp": "2025-10-17T02:02:56.076Z",
+    "cancelled": false
+  },
+  {
+    "id": 2,
+    "displayNumber": 2,
+    "items": [
+      {
+        "id": "C",
+        "name": "商品C",
+        "price": 200,
+        "quantity": 1
+      }
+    ],
+    "status": "提供済み",
+    "timestamp": "2025-10-17T02:03:21.673Z",
+    "cancelled": false
+  },
+  {
+    "id": 3,
+    "displayNumber": 3,
+    "items": [
+      {
+        "id": "A",
+        "name": "商品A",
+        "price": 100,
+        "quantity": 1
+      },
+      {
+        "id": "B",
+        "name": "商品B",
+        "price": 100,
+        "quantity": 1
+      }
+    ],
+    "status": "提供済み",
+    "timestamp": "2025-10-17T02:03:29.597Z",
+    "cancelled": false
+  }
+]
